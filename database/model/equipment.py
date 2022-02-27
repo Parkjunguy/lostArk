@@ -9,8 +9,12 @@ class Model:
         data = dict(x for x in self.__dict__.items())
         return data
 
-def insert(data):
+
+def validation(data): # json 검증
     pass
 
-def updata(data):
+def insert(data):  # DB insert 진행 함수
+    pass
+
+def updata(data): #  기존 데이터가 있다면 값 비교후 갱신
     pass

@@ -1,7 +1,6 @@
-# 공용 함수
 import os
 import time
-from seleniumwire import webdriver # ajax  수집 불가능  일반 셀레니움으로 변환
+from seleniumwire import webdriver
 
 # 환경 분리  => 실서버 환경은 우분투 , 개발 환경은 윈도우  / 서버 pc 준비되면 분리 진행 시작 할것.
 if os.environ['ENV'] == 'dev':
@@ -9,7 +8,7 @@ if os.environ['ENV'] == 'dev':
 else:
     driver_path = 'D:\park_crawler\chromedrvier\chromedriver.exe'
 
-def loawa_click_sleep():
+def short_sleep():
     time.sleep(3)
 
 # 크롬 driver 옵션 추출 함수
@@ -35,7 +34,7 @@ def get_list(driver):
         driver.find_element(
             by='xpath',value=f'//*[@id="contents"]/article/form/div/div[1]/div/div[2]/div/label[{server}]'
         ).click()
-        loawa_click_sleep()
+        short_sleep()
         for request in driver.requests:
             if 'itemLevel?server=' in request.url:
                 print(request.response.body)
